@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Panini Market ⚽</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #07152f, #0d3b66);
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 35px 15px;
+      background: rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      color: #111;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .player {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .special {
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+    }
+
+    .rare {
+      background: linear-gradient(135deg, #c084fc, #7c3aed);
+      color: white;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #0d3b66;
+      color: white;
+    }
+
+    button:hover {
+      background: #145da0;
+    }
+
+    .contact {
+      margin-top: 40px;
+      padding: 25px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+      background: rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>⚽ PANINI MARKET 🏆</h1>
+    <p>Achète tes cartes de football préférées !</p>
+  </header>
+
+  <div class="container">
+
+    <div class="intro">
+      <h2>🔥 Nos cartes</h2>
+      <p>Cartes normales et cartes rares disponibles.</p>
+    </div>
+
+    <div class="cards">
+
+      <!-- CARTE NORMALE -->
+      <div class="card">
+        <div class="player">⚽ Carte normale</div>
+        <p>Carte Panini classique</p>
+        <div class="price">7 DH</div>
+        <button onclick="commander('Carte normale - 7 DH')">
+          Commander
+        </button>
+      </div>
+
+      <!-- MESSI -->
+      <div class="card rare">
+        <div class="player">🐐 Messi</div>
+        <p>Carte rare</p>
+        <div class="price">250 DH</div>
+        <button onclick="commander('Messi - 250 DH')">
+          Commander
+        </button>
+      </div>
+
+      <!-- MBAPPE -->
+      <div class="card rare">
+        <div class="player">⚡ Mbappé</div>
+        <p>Carte rare</p>
+        <div class="price">200 DH</div>
+        <button onclick="commander('Mbappé - 200 DH')">
+          Commander
+        </button>
+      </div>
+
+      <!-- YAMAL -->
+      <div class="card rare">
+        <div class="player">🌟 Yamal</div>
+        <p>Carte rare</p>
+        <div class="price">200 DH</div>
+        <button onclick="commander('Yamal - 200 DH')">
+          Commander
+        </button>
+      </div>
+
+      <!-- HAALAND -->
+      <div class="card rare">
+        <div class="player">💥 Haaland</div>
+        <p>Carte rare</p>
+        <div class="price">150 DH</div>
+        <button onclick="commander('Haaland - 150 DH')">
+          Commander
+        </button>
+      </div>
+
+    </div>
+
+    <div class="contact">
+      <h2>📩 Commander une carte</h2>
+      <p>Clique sur le bouton de la carte que tu veux acheter.</p>
+      <p>Nous te contacterons pour confirmer la commande.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Panini Market ⚽</p>
+  </footer>
+
+  <script>
+    function commander(carte) {
+      alert(
+        "🔥 Tu veux commander : " +
+        carte +
+        "\\n\\nContacte le vendeur pour finaliser la commande !"
+      );
+    }
+  </script>
+
+</body>
+</html>

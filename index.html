@@ -1,212 +1,477 @@
+Ctrl + A → Suppr → colle TOUT le code ci-dessous → Commit changes.
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Panini Market ⚽</title>
+<title>Panini Market ⚽</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #07152f, #0d3b66);
-      color: white;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #07111f;
+  color: white;
+}
 
-    header {
-      text-align: center;
-      padding: 35px 15px;
-      background: rgba(0,0,0,0.3);
-    }
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #0066ff, #6c2cff);
+  padding: 35px 20px;
+  text-align: center;
+}
 
-    header h1 {
-      font-size: 42px;
-      margin: 0;
-    }
+header h1 {
+  margin: 0;
+  font-size: 42px;
+}
 
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
-    }
+header p {
+  margin: 10px 0 0;
+  font-size: 18px;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 25px;
-    }
+/* NAVIGATION */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #0b1728;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 15px rgba(0,0,0,.4);
+}
 
-    .intro {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+.cart-button {
+  background: #ffd700;
+  color: #111;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .card {
-      background: white;
-      color: #111;
-      border-radius: 18px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: 0.2s;
-    }
+/* CONTENT */
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 30px 20px;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+.section-title {
+  text-align: center;
+  margin: 35px 0 20px;
+}
 
-    .player {
-      font-size: 28px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+.section-title h2 {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
 
-    .special {
-      background: linear-gradient(135deg, #ffd700, #ff8c00);
-    }
+/* CARDS */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
 
-    .rare {
-      background: linear-gradient(135deg, #c084fc, #7c3aed);
-      color: white;
-    }
+.card {
+  background: #111f33;
+  border: 1px solid #263b58;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: .25s;
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
 
-    .price {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 15px 0;
-    }
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.4);
+}
 
-    button {
-      border: none;
-      border-radius: 10px;
-      padding: 12px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      background: #0d3b66;
-      color: white;
-    }
+.card.normal {
+  border-top: 5px solid #3b82f6;
+}
 
-    button:hover {
-      background: #145da0;
-    }
+.card.special {
+  border-top: 5px solid #ffd700;
+  background: linear-gradient(145deg, #1b2538, #3b2c0b);
+}
 
-    .contact {
-      margin-top: 40px;
-      padding: 25px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 18px;
-      text-align: center;
-    }
+.card-icon {
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 75px;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      margin-top: 30px;
-      background: rgba(0,0,0,0.3);
-    }
-  </style>
+.card h3 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.type {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #243957;
+  font-size: 13px;
+}
+
+.special .type {
+  background: #ffd700;
+  color: #111;
+}
+
+.price {
+  font-size: 27px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.add-button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  background: #1769ff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.special .add-button {
+  background: #ffd700;
+  color: #111;
+}
+
+.add-button:hover {
+  opacity: .85;
+}
+
+/* PANIER */
+.cart {
+  position: fixed;
+  right: -420px;
+  top: 0;
+  width: 390px;
+  max-width: 90%;
+  height: 100%;
+  background: #0b1728;
+  z-index: 100;
+  padding: 25px;
+  box-shadow: -5px 0 25px rgba(0,0,0,.5);
+  transition: .3s;
+  overflow-y: auto;
+}
+
+.cart.open {
+  right: 0;
+}
+
+.cart h2 {
+  margin-top: 0;
+}
+
+.close {
+  float: right;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.cart-item {
+  background: #14243a;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.total {
+  border-top: 1px solid #345;
+  margin-top: 20px;
+  padding-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.order {
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #22c55e;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px;
+  background: #050b13;
+  color: #9ca3af;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 31px;
+  }
+
+  nav {
+    padding: 12px;
+  }
+
+  .cart {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>⚽ PANINI MARKET 🏆</h1>
-    <p>Achète tes cartes de football préférées !</p>
-  </header>
+<header>
+  <h1>⚽ PANINI MARKET 🏆</h1>
+  <p>Collectionne • Achète • Complète ta collection</p>
+</header>
 
-  <div class="container">
+<nav>
+  <div class="logo">🔥 Panini Market</div>
 
-    <div class="intro">
-      <h2>🔥 Nos cartes</h2>
-      <p>Cartes normales et cartes rares disponibles.</p>
-    </div>
+  <button class="cart-button" onclick="openCart()">
+    🛒 Panier (<span id="cartCount">0</span>)
+  </button>
+</nav>
 
-    <div class="cards">
+<div class="container">
 
-      <!-- CARTE NORMALE -->
-      <div class="card">
-        <div class="player">⚽ Carte normale</div>
-        <p>Carte Panini classique</p>
-        <div class="price">7 DH</div>
-        <button onclick="commander('Carte normale - 7 DH')">
-          Commander
-        </button>
-      </div>
+  <!-- CARTES NORMALES -->
+  <div class="section-title">
+    <h2>⚽ Cartes normales</h2>
+    <p>Les cartes classiques de ta collection</p>
+  </div>
 
-      <!-- MESSI -->
-      <div class="card rare">
-        <div class="player">🐐 Messi</div>
-        <p>Carte rare</p>
-        <div class="price">250 DH</div>
-        <button onclick="commander('Messi - 250 DH')">
-          Commander
-        </button>
-      </div>
+  <div class="products">
 
-      <!-- MBAPPE -->
-      <div class="card rare">
-        <div class="player">⚡ Mbappé</div>
-        <p>Carte rare</p>
-        <div class="price">200 DH</div>
-        <button onclick="commander('Mbappé - 200 DH')">
-          Commander
-        </button>
-      </div>
-
-      <!-- YAMAL -->
-      <div class="card rare">
-        <div class="player">🌟 Yamal</div>
-        <p>Carte rare</p>
-        <div class="price">200 DH</div>
-        <button onclick="commander('Yamal - 200 DH')">
-          Commander
-        </button>
-      </div>
-
-      <!-- HAALAND -->
-      <div class="card rare">
-        <div class="player">💥 Haaland</div>
-        <p>Carte rare</p>
-        <div class="price">150 DH</div>
-        <button onclick="commander('Haaland - 150 DH')">
-          Commander
-        </button>
-      </div>
-
-    </div>
-
-    <div class="contact">
-      <h2>📩 Commander une carte</h2>
-      <p>Clique sur le bouton de la carte que tu veux acheter.</p>
-      <p>Nous te contacterons pour confirmer la commande.</p>
+    <div class="card normal">
+      <div class="card-icon">⚽</div>
+      <h3>Carte normale</h3>
+      <span class="type">CARTE NORMALE</span>
+      <div class="price">7 DH</div>
+      <button class="add-button" onclick="addToCart('Carte normale', 7)">
+        🛒 Ajouter au panier
+      </button>
     </div>
 
   </div>
 
-  <footer>
-    <p>© 2026 Panini Market ⚽</p>
-  </footer>
 
-  <script>
-    function commander(carte) {
-      alert(
-        "🔥 Tu veux commander : " +
-        carte +
-        "\\n\\nContacte le vendeur pour finaliser la commande !"
-      );
-    }
-  </script>
+  <!-- CARTES SPECIALES -->
+  <div class="section-title">
+    <h2>⭐ Cartes spéciales</h2>
+    <p>Les cartes rares de Panini Market</p>
+  </div>
+
+  <div class="products">
+
+    <div class="card special">
+      <div class="card-icon">🐐</div>
+      <h3>Messi</h3>
+      <span class="type">⭐ RARE</span>
+      <div class="price">250 DH</div>
+      <button class="add-button" onclick="addToCart('Messi', 250)">
+        🛒 Ajouter au panier
+      </button>
+    </div>
+
+    <div class="card special">
+      <div class="card-icon">⚡</div>
+      <h3>Mbappé</h3>
+      <span class="type">⭐ RARE</span>
+      <div class="price">200 DH</div>
+      <button class="add-button" onclick="addToCart('Mbappé', 200)">
+        🛒 Ajouter au panier
+      </button>
+    </div>
+
+    <div class="card special">
+      <div class="card-icon">🌟</div>
+      <h3>Yamal</h3>
+      <span class="type">⭐ RARE</span>
+      <div class="price">200 DH</div>
+      <button class="add-button" onclick="addToCart('Yamal', 200)">
+        🛒 Ajouter au panier
+      </button>
+    </div>
+
+    <div class="card special">
+      <div class="card-icon">💥</div>
+      <h3>Haaland</h3>
+      <span class="type">⭐ RARE</span>
+      <div class="price">150 DH</div>
+      <button class="add-button" onclick="addToCart('Haaland', 150)">
+        🛒 Ajouter au panier
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- PANIER -->
+
+<div class="cart" id="cart">
+
+  <button class="close" onclick="closeCart()">✕</button>
+
+  <h2>🛒 Mon panier</h2>
+
+  <div id="cartItems">
+    <p>Ton panier est vide.</p>
+  </div>
+
+  <div class="total">
+    Total : <span id="total">0</span> DH
+  </div>
+
+  <button class="order" onclick="order()">
+    📩 Commander
+  </button>
+
+</div>
+
+
+<footer>
+  <p>© 2026 Panini Market ⚽</p>
+  <p>Merci de soutenir notre collection ❤️</p>
+</footer>
+
+
+<script>
+
+let cart = [];
+
+function addToCart(name, price) {
+
+  cart.push({
+    name: name,
+    price: price
+  });
+
+  updateCart();
+
+  alert("✅ " + name + " a été ajouté au panier !");
+}
+
+function updateCart() {
+
+  const cartItems = document.getElementById("cartItems");
+  const cartCount = document.getElementById("cartCount");
+  const totalElement = document.getElementById("total");
+
+  cartCount.textContent = cart.length;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<p>Ton panier est vide.</p>";
+    totalElement.textContent = "0";
+    return;
+  }
+
+  let total = 0;
+  let html = "";
+
+  cart.forEach((item, index) => {
+
+    total += item.price;
+
+    html += `
+      <div class="cart-item">
+        <strong>${item.name}</strong>
+        <br>
+        ${item.price} DH
+        <br><br>
+        <button onclick="removeItem(${index})">
+          ❌ Retirer
+        </button>
+      </div>
+    `;
+  });
+
+  cartItems.innerHTML = html;
+  totalElement.textContent = total;
+}
+
+function removeItem(index) {
+
+  cart.splice(index, 1);
+
+  updateCart();
+}
+
+function openCart() {
+
+  document.getElementById("cart").classList.add("open");
+}
+
+function closeCart() {
+
+  document.getElementById("cart").classList.remove("open");
+}
+
+function order() {
+
+  if (cart.length === 0) {
+
+    alert("⚠️ Ton panier est vide !");
+
+    return;
+  }
+
+  let message = "🛒 COMMANDE PANINI MARKET\n\n";
+
+  let total = 0;
+
+  cart.forEach(item => {
+
+    message += "• " + item.name + " — " + item.price + " DH\n";
+
+    total += item.price;
+  });
+
+  message += "\n💰 TOTAL : " + total + " DH";
+
+  alert(message + "\n\n📩 Contacte le vendeur pour finaliser la commande !");
+}
+
+</script>
 
 </body>
 </html>

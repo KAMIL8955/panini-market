@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -155,6 +156,8 @@ nav {
   opacity: .85;
 }
 
+/* PANIER */
+
 .cart {
   position: fixed;
   right: -420px;
@@ -222,6 +225,34 @@ nav {
   cursor: pointer;
 }
 
+/* FORMULAIRE */
+
+.customer-form {
+  margin-top: 25px;
+  padding: 20px;
+  background: #111f33;
+  border-radius: 15px;
+}
+
+.customer-form h3 {
+  margin-top: 0;
+}
+
+.customer-form input,
+.customer-form textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.customer-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
 footer {
   text-align: center;
   margin-top: 50px;
@@ -260,6 +291,8 @@ footer {
 
 <div class="container">
 
+  <!-- CARTES NORMALES -->
+
   <div class="section-title">
     <h2>⚽ Cartes normales</h2>
     <p>Les cartes classiques de ta collection</p>
@@ -268,18 +301,25 @@ footer {
   <div class="products">
 
     <div class="card normal">
+
       <div class="card-icon">⚽</div>
+
       <h3>Carte normale</h3>
+
       <span class="type">CARTE NORMALE</span>
-      <div class="price">7 DH</div>
+
+      <div class="price">5 DH</div>
 
       <button class="add-button"
-        onclick="addToCart('Carte normale', 7)">
+        onclick="addToCart('Carte normale', 5)">
         🛒 Ajouter au panier
       </button>
+
     </div>
 
   </div>
+
+  <!-- CARTES SPÉCIALES -->
 
   <div class="section-title">
     <h2>⭐ Cartes spéciales</h2>
@@ -289,56 +329,78 @@ footer {
   <div class="products">
 
     <div class="card special">
+
       <div class="card-icon">🐐</div>
+
       <h3>Messi</h3>
+
       <span class="type">⭐ RARE</span>
+
       <div class="price">250 DH</div>
 
       <button class="add-button"
         onclick="addToCart('Messi', 250)">
         🛒 Ajouter au panier
       </button>
+
     </div>
 
     <div class="card special">
+
       <div class="card-icon">⚡</div>
+
       <h3>Mbappé</h3>
+
       <span class="type">⭐ RARE</span>
+
       <div class="price">200 DH</div>
 
       <button class="add-button"
         onclick="addToCart('Mbappé', 200)">
         🛒 Ajouter au panier
       </button>
+
     </div>
 
     <div class="card special">
+
       <div class="card-icon">🌟</div>
+
       <h3>Yamal</h3>
+
       <span class="type">⭐ RARE</span>
+
       <div class="price">200 DH</div>
 
       <button class="add-button"
         onclick="addToCart('Yamal', 200)">
         🛒 Ajouter au panier
       </button>
+
     </div>
 
     <div class="card special">
+
       <div class="card-icon">💥</div>
+
       <h3>Haaland</h3>
+
       <span class="type">⭐ RARE</span>
+
       <div class="price">150 DH</div>
 
       <button class="add-button"
         onclick="addToCart('Haaland', 150)">
         🛒 Ajouter au panier
       </button>
+
     </div>
 
   </div>
 
 </div>
+
+<!-- PANIER -->
 
 <div class="cart" id="cart">
 
@@ -354,8 +416,30 @@ footer {
     Total : <span id="total">0</span> DH
   </div>
 
+  <!-- INFORMATIONS CLIENT -->
+
+  <div class="customer-form">
+
+    <h3>📦 Tes informations</h3>
+
+    <input
+      type="text"
+      id="customerName"
+      placeholder="Ton prénom">
+
+    <input
+      type="text"
+      id="customerContact"
+      placeholder="Ton numéro de téléphone">
+
+    <textarea
+      id="customerAddress"
+      placeholder="Adresse de livraison"></textarea>
+
+  </div>
+
   <button class="order" onclick="order()">
-    📩 Commander
+    📧 Commander par e-mail
   </button>
 
 </div>
@@ -383,15 +467,24 @@ function addToCart(name, price) {
 
 function updateCart() {
 
-  const cartItems = document.getElementById("cartItems");
-  const cartCount = document.getElementById("cartCount");
-  const totalElement = document.getElementById("total");
+  const cartItems =
+    document.getElementById("cartItems");
+
+  const cartCount =
+    document.getElementById("cartCount");
+
+  const totalElement =
+    document.getElementById("total");
 
   cartCount.textContent = cart.length;
 
   if (cart.length === 0) {
-    cartItems.innerHTML = "<p>Ton panier est vide.</p>";
+
+    cartItems.innerHTML =
+      "<p>Ton panier est vide.</p>";
+
     totalElement.textContent = "0";
+
     return;
   }
 
@@ -404,18 +497,28 @@ function updateCart() {
 
     html += `
       <div class="cart-item">
+
         <strong>${item.name}</strong>
+
         <br>
+
         ${item.price} DH
+
         <br>
-        <button class="remove" onclick="removeItem(${index})">
+
+        <button class="remove"
+          onclick="removeItem(${index})">
+
           ❌ Retirer
+
         </button>
+
       </div>
     `;
   });
 
   cartItems.innerHTML = html;
+
   totalElement.textContent = total;
 }
 
@@ -428,12 +531,16 @@ function removeItem(index) {
 
 function openCart() {
 
-  document.getElementById("cart").classList.add("open");
+  document
+    .getElementById("cart")
+    .classList.add("open");
 }
 
 function closeCart() {
 
-  document.getElementById("cart").classList.remove("open");
+  document
+    .getElementById("cart")
+    .classList.remove("open");
 }
 
 function order() {
@@ -445,25 +552,86 @@ function order() {
     return;
   }
 
-  let message = "🛒 COMMANDE PANINI MARKET\n\n";
+  const name =
+    document
+      .getElementById("customerName")
+      .value
+      .trim();
+
+  const contact =
+    document
+      .getElementById("customerContact")
+      .value
+      .trim();
+
+  const address =
+    document
+      .getElementById("customerAddress")
+      .value
+      .trim();
+
+  if (!name || !contact || !address) {
+
+    alert(
+      "⚠️ Remplis ton prénom, ton numéro de téléphone et ton adresse."
+    );
+
+    return;
+  }
+
   let total = 0;
+
+  let products = "";
 
   cart.forEach(item => {
 
-    message += "• " + item.name + " — " + item.price + " DH\n";
+    products +=
+      "• " +
+      item.name +
+      " — " +
+      item.price +
+      " DH\n";
 
     total += item.price;
   });
 
-  message += "\n💰 TOTAL : " + total + " DH";
+  const subject =
+    "Nouvelle commande - Panini Market";
 
-  alert(
-    message +
-    "\n\n📩 Contacte le vendeur pour finaliser la commande !"
-  );
+  const body =
+    "Bonjour,\n\n" +
+
+    "Je souhaite passer cette commande :\n\n" +
+
+    products +
+
+    "\nTOTAL : " +
+    total +
+    " DH\n\n" +
+
+    "Prénom : " +
+    name +
+
+    "\nTéléphone : " +
+    contact +
+
+    "\nAdresse : " +
+    address +
+
+    "\n\nMerci !";
+
+  const mailto =
+    "mailto:elabedkamil47@gmail.com" +
+    "?subject=" +
+    encodeURIComponent(subject) +
+    "&body=" +
+    encodeURIComponent(body);
+
+  window.location.href = mailto;
 }
 
 </script>
 
 </body>
 </html>
+```

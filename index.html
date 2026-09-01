@@ -1,5 +1,3 @@
-Ctrl + A → Suppr → colle TOUT le code ci-dessous → Commit changes.
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,34 +18,30 @@ body {
   color: white;
 }
 
-/* HEADER */
 header {
-  background: linear-gradient(135deg, #0066ff, #6c2cff);
-  padding: 35px 20px;
+  background: linear-gradient(135deg, #0066ff, #702cff);
+  padding: 40px 20px;
   text-align: center;
 }
 
 header h1 {
   margin: 0;
-  font-size: 42px;
+  font-size: 45px;
 }
 
 header p {
-  margin: 10px 0 0;
   font-size: 18px;
 }
 
-/* NAVIGATION */
 nav {
   position: sticky;
   top: 0;
   z-index: 10;
   background: #0b1728;
-  padding: 15px;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 3px 15px rgba(0,0,0,.4);
 }
 
 .logo {
@@ -65,7 +59,6 @@ nav {
   cursor: pointer;
 }
 
-/* CONTENT */
 .container {
   max-width: 1150px;
   margin: auto;
@@ -79,10 +72,8 @@ nav {
 
 .section-title h2 {
   font-size: 30px;
-  margin-bottom: 5px;
 }
 
-/* CARDS */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -96,12 +87,11 @@ nav {
   padding: 20px;
   text-align: center;
   transition: .25s;
-  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+  box-shadow: 0 10px 25px rgba(0,0,0,.3);
 }
 
 .card:hover {
   transform: translateY(-7px);
-  box-shadow: 0 15px 35px rgba(0,0,0,.4);
 }
 
 .card.normal {
@@ -123,7 +113,6 @@ nav {
 
 .card h3 {
   font-size: 24px;
-  margin: 10px 0;
 }
 
 .type {
@@ -166,7 +155,6 @@ nav {
   opacity: .85;
 }
 
-/* PANIER */
 .cart {
   position: fixed;
   right: -420px;
@@ -186,10 +174,6 @@ nav {
   right: 0;
 }
 
-.cart h2 {
-  margin-top: 0;
-}
-
 .close {
   float: right;
   background: #ef4444;
@@ -205,6 +189,16 @@ nav {
   margin: 10px 0;
   padding: 12px;
   border-radius: 10px;
+}
+
+.remove {
+  margin-top: 8px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .total {
@@ -228,7 +222,6 @@ nav {
   cursor: pointer;
 }
 
-/* FOOTER */
 footer {
   text-align: center;
   margin-top: 50px;
@@ -237,14 +230,9 @@ footer {
   color: #9ca3af;
 }
 
-/* MOBILE */
 @media (max-width: 600px) {
   header h1 {
     font-size: 31px;
-  }
-
-  nav {
-    padding: 12px;
   }
 
   .cart {
@@ -272,7 +260,6 @@ footer {
 
 <div class="container">
 
-  <!-- CARTES NORMALES -->
   <div class="section-title">
     <h2>⚽ Cartes normales</h2>
     <p>Les cartes classiques de ta collection</p>
@@ -285,15 +272,15 @@ footer {
       <h3>Carte normale</h3>
       <span class="type">CARTE NORMALE</span>
       <div class="price">7 DH</div>
-      <button class="add-button" onclick="addToCart('Carte normale', 7)">
+
+      <button class="add-button"
+        onclick="addToCart('Carte normale', 7)">
         🛒 Ajouter au panier
       </button>
     </div>
 
   </div>
 
-
-  <!-- CARTES SPECIALES -->
   <div class="section-title">
     <h2>⭐ Cartes spéciales</h2>
     <p>Les cartes rares de Panini Market</p>
@@ -306,7 +293,9 @@ footer {
       <h3>Messi</h3>
       <span class="type">⭐ RARE</span>
       <div class="price">250 DH</div>
-      <button class="add-button" onclick="addToCart('Messi', 250)">
+
+      <button class="add-button"
+        onclick="addToCart('Messi', 250)">
         🛒 Ajouter au panier
       </button>
     </div>
@@ -316,7 +305,9 @@ footer {
       <h3>Mbappé</h3>
       <span class="type">⭐ RARE</span>
       <div class="price">200 DH</div>
-      <button class="add-button" onclick="addToCart('Mbappé', 200)">
+
+      <button class="add-button"
+        onclick="addToCart('Mbappé', 200)">
         🛒 Ajouter au panier
       </button>
     </div>
@@ -326,7 +317,9 @@ footer {
       <h3>Yamal</h3>
       <span class="type">⭐ RARE</span>
       <div class="price">200 DH</div>
-      <button class="add-button" onclick="addToCart('Yamal', 200)">
+
+      <button class="add-button"
+        onclick="addToCart('Yamal', 200)">
         🛒 Ajouter au panier
       </button>
     </div>
@@ -336,7 +329,9 @@ footer {
       <h3>Haaland</h3>
       <span class="type">⭐ RARE</span>
       <div class="price">150 DH</div>
-      <button class="add-button" onclick="addToCart('Haaland', 150)">
+
+      <button class="add-button"
+        onclick="addToCart('Haaland', 150)">
         🛒 Ajouter au panier
       </button>
     </div>
@@ -344,9 +339,6 @@ footer {
   </div>
 
 </div>
-
-
-<!-- PANIER -->
 
 <div class="cart" id="cart">
 
@@ -368,12 +360,10 @@ footer {
 
 </div>
 
-
 <footer>
   <p>© 2026 Panini Market ⚽</p>
   <p>Merci de soutenir notre collection ❤️</p>
 </footer>
-
 
 <script>
 
@@ -417,8 +407,8 @@ function updateCart() {
         <strong>${item.name}</strong>
         <br>
         ${item.price} DH
-        <br><br>
-        <button onclick="removeItem(${index})">
+        <br>
+        <button class="remove" onclick="removeItem(${index})">
           ❌ Retirer
         </button>
       </div>
@@ -456,7 +446,6 @@ function order() {
   }
 
   let message = "🛒 COMMANDE PANINI MARKET\n\n";
-
   let total = 0;
 
   cart.forEach(item => {
@@ -468,7 +457,10 @@ function order() {
 
   message += "\n💰 TOTAL : " + total + " DH";
 
-  alert(message + "\n\n📩 Contacte le vendeur pour finaliser la commande !");
+  alert(
+    message +
+    "\n\n📩 Contacte le vendeur pour finaliser la commande !"
+  );
 }
 
 </script>
